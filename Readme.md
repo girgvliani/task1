@@ -1,8 +1,8 @@
-#Ciphers
+# Ciphers
 
 This file conatins a pyprogram for selecting and using different Ciphers to encrypt and decrypt a text file
 
-#Index Substitution Cipher
+# Index Substitution Cipher
 
 
 This is a relatively simple cipher: Each character is replaced with its 2 digit
@@ -16,7 +16,7 @@ Plain text: 'cipher'
 Encrypted text: '03 09 16 08 05 18'
 Decrypted text: 'cipher'
 
-#Morse Code
+# Morse Code
 Morse code is a character-encoding scheme that allows operators to send messages using a series of electrical pulses
 represented as short or long pulses, dots, and dashes. It was used extensively in the XIX century. Even though it is not
 popular today, it still can be a fun cipher to implement.
@@ -57,7 +57,7 @@ Plain text: 'morse'
 Encrypted text: '__ ___ ._. ... .'
 Decrypted text: 'morse'
 
-#Affine Cipher
+# Affine Cipher
 The next cipher you should implement is called the Affine Cipher. The Affine cipher is a type of monoalphabetic
 substitution cipher that uses a simple mathematical function to encrypt given letters. Each letter is changed with
 exactly one new letter.
@@ -88,7 +88,7 @@ Encrypted text: 'fiipsx'
 Decrypted text: 'affine'
 
 
-#Caesar Cipher
+# Caesar Cipher
 The next cipher is the Caesar cipher. Caesar cipher is a shift cipher, one of the easiest and the most famous
 encryption systems (and really old, Yes, Julius Caesar used it).
 Encryption with Caesar code is based on an alphabet shift, it is a monoalphabetic substitution cipher, ie. the same
@@ -135,7 +135,7 @@ Plain Text: "Cipher Programming - 101!"
 Encrypted text: "Fksjht Ruqjtdopkqi - 333!"
 Decrypted text: "Cipher Programming - 101!"
 
-#Transposition Cipher
+# Transposition Cipher
 Transposition Cipher is different from the previous ciphers. Instead of changing characters to different characters, in
 this cipher, characters of the initial text are rearranged. You should implement this procedure in
 encryptTranspositionCipher and decryptTranspositionCipher functions.
