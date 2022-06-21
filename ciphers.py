@@ -150,12 +150,36 @@ def decryptCaesarCipher(text, key1, key2):
             rettext += chr(numvalue)
     return rettext
 
-print(decryptCaesarCipher(encryptCaesarCipher("Cipher Programming - 101!", 3, 2), 3, 2))
 
 
 # ----------------------Transposition Cipher----------------------
 def encryptTranspositionCipher(text, key):
-    pass
+    lst = []
+    temp = ""
+    rettext = ""
+    for index in range(0, len(text)):
+        if (index + 1) % key == 0 :   
+            temp += text[index]
+            lst.append(temp)
+            temp = ""
+        else:
+            temp += text[index]
+            if index == len(text)-1:
+                lst.append(temp)
+               
+    temp = ""
+
+    for index in range(0, key):
+       for part in lst:
+        if len(part) == key:
+            temp += part[index]
+        elif index < len(part):
+            temp += part[index]
+        rettext += temp
+        temp = ""
+    return rettext
+               
+
 
 def decryptTranspositionCipher(text, key):
     pass
