@@ -95,14 +95,62 @@ def decryptAffineCipher(text, a, b):
         x = ord(letter) - 97
         rettext += chr((pow(a, -1, 26) * (x-b)) % 26 + 97)
     return rettext
-    
+
 
 # ----------------------Caesar Cipher----------------------
 def encryptCaesarCipher(text, key1, key2):
-    pass
+    masterKey = key1 # A made up name for clarity
+    rettext = ""
+
+    for index in range(0, len(text)):
+        if index % 2 == 1:
+            masterKey = key2
+        else:
+            masterKey = key1
+        numvalue = ord(text[index])
+        if numvalue < 58 and numvalue > 47:
+            if numvalue + masterKey % 10 > 58:
+               numvalue -= 10
+            rettext += chr(numvalue + masterKey % 10)
+        elif numvalue > 65 and numvalue < 90:
+            if numvalue + masterKey % 26 > 90:
+               numvalue -= 26
+            rettext += chr(numvalue + masterKey % 26)
+        elif numvalue > 96 and numvalue < 122:
+            if numvalue + masterKey % 26 > 122:
+               numvalue -= 26
+            rettext += chr(numvalue + masterKey % 26)
+        else:
+            rettext += chr(numvalue)
+    return rettext
 
 def decryptCaesarCipher(text, key1, key2):
-    pass
+    masterKey = key1
+    rettext = ""
+
+    for index in range(0, len(text)):
+        if index % 2 == 1:
+            masterKey = key2
+        else:
+            masterKey = key1
+        numvalue = ord(text[index])
+        if numvalue < 58 and numvalue > 47:
+            if numvalue + masterKey % 10 < 47:
+               numvalue += 10
+            rettext += chr(numvalue - masterKey % 10)
+        elif numvalue > 65 and numvalue < 90:
+            if numvalue + masterKey % 26 < 65:
+               numvalue += 26
+            rettext += chr(numvalue - masterKey % 26)
+        elif numvalue > 96 and numvalue < 122:
+            if numvalue + masterKey % 26 < 96:
+               numvalue += 26
+            rettext += chr(numvalue - masterKey % 26)
+        else:
+            rettext += chr(numvalue)
+    return rettext
+
+print(decryptCaesarCipher(encryptCaesarCipher("Cipher Programming - 101!", 3, 2), 3, 2))
 
 
 # ----------------------Transposition Cipher----------------------
