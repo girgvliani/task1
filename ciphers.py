@@ -77,10 +77,25 @@ def decryptMorseCode(text):
 
 # ----------------------Affine Cipher----------------------
 def encryptAffineCipher(text, a, b):
-    pass
+    rettext = ""
+
+    for letter in text:
+        #using x for more clarity with the formula
+        #e(x) = (a*x + b) % 26 
+        x = ord(letter)-97
+        rettext += chr((a*x + b) % 26 + 97)
+    return rettext
+
 
 def decryptAffineCipher(text, a, b):
-    pass
+    rettext = ""
+    
+    for letter in text:
+        #d(x) = (pow(a,-1,26) * (x - b)) % 26
+        x = ord(letter) - 97
+        rettext += chr((pow(a, -1, 26) * (x-b)) % 26 + 97)
+    return rettext
+    
 
 # ----------------------Caesar Cipher----------------------
 def encryptCaesarCipher(text, key1, key2):
