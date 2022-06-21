@@ -3,7 +3,6 @@ from pickletools import stringnl
 
 
 def encryptIndexSubstitutionCipher(text):
-    strin = []
     rettext = ""
     for letter in text:
         rettext += ("0"+str(ord(letter)-96)) if ord(letter) < 106 else (str(ord(letter)-96))
@@ -21,8 +20,6 @@ def decryptIndexSubstitutionCipher(text):
             rettext += chr(int(text[index-1:index+1])+96)
 
     return rettext
-
-            
 
 # ----------------------Morse Code----------------------
 morseCode = {
@@ -55,10 +52,28 @@ morseCode = {
 }
 
 def encryptMorseCode(text):
-    pass
+    rettext = ""
+    for letter in text:
+        rettext += morseCode[letter]
+        rettext += " "
+    return rettext
+
 
 def decryptMorseCode(text):
-    pass
+    code = morseCode.items()
+    temporary = ""
+    rettext = ""
+
+    for letter in text:
+        if letter != " ":
+            temporary += letter
+        else:
+            for member in code:
+                if member[1] == temporary:
+                    rettext += member[0]
+                    temporary = ""         
+           
+    return rettext
 
 # ----------------------Affine Cipher----------------------
 def encryptAffineCipher(text, a, b):
