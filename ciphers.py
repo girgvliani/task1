@@ -6,15 +6,10 @@ def encryptIndexSubstitutionCipher(text):
     strin = []
     rettext = ""
     for letter in text:
-        strin.append ("0"+str(ord(letter)-96)) if ord(letter) < 106 else strin.append(str(ord(letter)-96))
-    
-    for element in strin:
-        rettext += element
+        rettext += ("0"+str(ord(letter)-96)) if ord(letter) < 106 else (str(ord(letter)-96))
         rettext += " "
-    
+
     return rettext
-
-
 
 
 def decryptIndexSubstitutionCipher(text):
