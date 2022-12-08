@@ -1,5 +1,5 @@
 # ----------------------Index Sub Cipher----------------------
-from pickletools import stringnl
+
 
 
 def encryptIndexSubstitutionCipher(text):
@@ -182,4 +182,20 @@ def encryptTranspositionCipher(text, key):
 
 
 def decryptTranspositionCipher(text, key):
-    pass
+    rettext = ""
+    doubleArray = [[]]
+    num = len(text)//key
+    counter = len(text) - num * key
+
+    for char in text:
+        print(char)
+        doubleArray.insert(text.index(char) % key, char)
+
+    for vector in doubleArray:
+        for element in vector:
+            rettext += element
+
+    return rettext
+    
+print(encryptTranspositionCipher("Cipher Programming - 101!", 6))
+print(decryptTranspositionCipher(encryptTranspositionCipher("Cipher Programming - 101!", 6), 6))
