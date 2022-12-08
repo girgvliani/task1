@@ -197,5 +197,4 @@ def decryptTranspositionCipher(text, key):
 
     return rettext
     
-print(encryptTranspositionCipher("Cipher Programming - 101!", 6))
-print(decryptTranspositionCipher(encryptTranspositionCipher("Cipher Programming - 101!", 6), 6))
+
